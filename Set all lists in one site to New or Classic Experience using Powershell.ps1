@@ -1,4 +1,4 @@
-# sets all lists from a single site to new or classic experience. Scroll down to enter the correct data and choose "NewExperience",
+#  Sets all lists from a single site to new or classic experience. Scroll down to enter the correct data and choose "NewExperience",
 # "ClassicExperience","Auto" experience option 
 #
 
