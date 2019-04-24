@@ -11,26 +11,25 @@ function Set-ExperienceOptions
 param (
         [Parameter(Mandatory=$true,Position=1)]
 		[string]$Username,
-		[Parameter(Mandatory=$true,Position=2)]
+	[Parameter(Mandatory=$true,Position=2)]
 		[string]$Url,
-    [Parameter(Mandatory=$true,Position=3)]
+    	[Parameter(Mandatory=$true,Position=3)]
 		$Password,
-    [Parameter(Mandatory=$true,Position=4)]
+    	[Parameter(Mandatory=$true,Position=4)]
 		[string]$ListTitle,
-    [Parameter(Mandatory=$true,Position=5)]
+    	[Parameter(Mandatory=$true,Position=5)]
 		[bool]$IncludeSubsites,
-    [Parameter(Mandatory=$true, Position=6)]
-    [ValidateSet("NewExperience", "ClassicExperience","Auto")]
-    $ExperienceOption
+    	[Parameter(Mandatory=$true, Position=6)]
+    	[ValidateSet("NewExperience", "ClassicExperience","Auto")]
+    	$ExperienceOption
 		)
-
 
   $ctx=New-Object Microsoft.SharePoint.Client.ClientContext($url)
   $ctx.Credentials = New-Object Microsoft.SharePoint.Client.SharePointOnlineCredentials($Username, $password)
   $ctx.Load($ctx.Web)
   $ctx.Load($ctx.Web.Webs)
   $ctx.ExecuteQuery()
- 
+ # get the list where experience needs to be changed
   $ll=$ctx.Web.Lists.GetByTitle($ListTitle)
   $ctx.Load($ll)
   $ctx.ExecuteQuery()
