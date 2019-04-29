@@ -1,4 +1,4 @@
-# Creates a list of all lists and their experience settings. An image of sample results is available in the repository in a .png file 
+# Shows all lists and their experience settings. An image of sample results is available in the repository in a .png file 
 # under the same title
 
 function Get-ExperienceOptions
