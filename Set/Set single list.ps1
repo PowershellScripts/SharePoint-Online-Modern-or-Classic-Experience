@@ -6,29 +6,29 @@ function Set-ExperienceOptions
 {
 param (
         [Parameter(Mandatory=$true,Position=1)]
-		[string]$Username,
-		[Parameter(Mandatory=$true,Position=2)]
-		[string]$Url,
-    [Parameter(Mandatory=$true,Position=3)]
+	[string]$Username,
+	[Parameter(Mandatory=$true,Position=2)]
+	[string]$Url,
+        [Parameter(Mandatory=$true,Position=3)]
 		$Password,
-    [Parameter(Mandatory=$true,Position=4)]
+    	[Parameter(Mandatory=$true,Position=4)]
 		[string]$ListTitle,
-    [Parameter(Mandatory=$true, Position=5)]
-    [ValidateSet("NewExperience", "ClassicExperience","Auto")]
-    $ExperienceOption
-		)
+    	[Parameter(Mandatory=$true, Position=5)]
+    	[ValidateSet("NewExperience", "ClassicExperience","Auto")]
+    	$ExperienceOption
+	)
 
 
   $ctx=New-Object Microsoft.SharePoint.Client.ClientContext($url)
   $ctx.Credentials = New-Object Microsoft.SharePoint.Client.SharePointOnlineCredentials($Username, $password)
   $ctx.Load($ctx.Web)
   $ctx.ExecuteQuery()
-  $ll=$ctx.Web.Lists.GetByTitle($ListTitle)
-  $ctx.Load($ll)
+  $list=$ctx.Web.Lists.GetByTitle($ListTitle)
+  $ctx.Load($list)
   $ctx.ExecuteQuery()
 
-  $ll.ListExperienceOptions = $ExperienceOption
-  $ll.Update()
+  $list.ListExperienceOptions = $ExperienceOption
+  $list.Update()
   $ctx.ExecuteQuery() 
 }
 
