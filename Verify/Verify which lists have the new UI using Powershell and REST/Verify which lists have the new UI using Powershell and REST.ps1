@@ -10,8 +10,8 @@ param (
 		)
 
  
-  $Credentials = New-Object Microsoft.SharePoint.Client.SharePointOnlineCredentials($Username, $password)
-  $RestUrl=$url+"/_api/web/lists"
+  	$Credentials = New-Object Microsoft.SharePoint.Client.SharePointOnlineCredentials($Username, $password)
+  	$RestUrl=$url+"/_api/web/lists"
 
 
         $request = [System.Net.WebRequest]::Create($RESTUrl) 
